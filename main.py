@@ -6,9 +6,9 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.responses import JSONResponse
 from io import BytesIO
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
-
-model = load_model('rice_model.keras')
+model = load_model(os.path.join(os.path.dirname(__file__), 'rice_model.keras'))
 class_names = ['bacterial leaf blight',
  'brown spot',
  'healthy',
