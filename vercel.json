@@ -1,17 +1,22 @@
 {
-  "version" : 2,
+  "version": 2,
   "builds": [
     {
-      "src": "app/api.py",
+      "src": "main.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb" }
-  }
-],
+    }
+  ],
   "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "main.py"
-      }
-  ]
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
+    }
+  ],
+  "includeFiles": ["rice_model.keras"],
+  "build": {
+    "env": {
+      "PYTHON_VERSION": "3.11"
+    }
+  }
 }
-  
